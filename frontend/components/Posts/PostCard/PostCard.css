@@ -1,0 +1,423 @@
+/* POST CARD */
+
+.post-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-top: none;
+  margin: 0;
+  transition: background-color 0.2s;
+  width: 100%;
+}
+
+/* Add cursor pointer only to clickable elements: */
+.post-title:hover,
+.post-thumbnail:hover,
+.post-body:hover,
+.post-image-container:hover {
+  cursor: pointer;
+}
+
+.post-card:hover {
+  background: var(--bg-page);
+}
+
+.post-card:first-child {
+  border-top: 1px solid var(--border-default);
+  border-radius: 8px 8px 0 0;
+}
+
+.post-card:last-child {
+  border-radius: 0 0 8px 8px;
+}
+
+/* Compact View */
+.compact-view .post-card {
+  display: flex;
+  align-items: flex-start;
+  padding: 0;
+}
+
+.compact-view .post-thumbnail {
+  width: 120px;
+  height: 128px;
+  flex-shrink: 0;
+  margin-top: 5px;
+  padding: 12px 0px 16px 12px;
+}
+
+/* When post is expanded, hide the thumbnail */
+.compact-view .post-card.expanded .post-thumbnail {
+  display: none;
+}
+
+/* Add left padding when thumbnail is hidden */
+.compact-view .post-card.expanded .post-content {
+  padding-left: 16px;
+}
+
+.compact-view .thumbnail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  transition: opacity 0.2s;
+}
+
+.compact-view .thumbnail-image:hover {
+  opacity: 0.8;
+}
+
+.compact-view .post-content {
+  padding: 12px 16px 12px 12px;
+  flex: 1;
+  position: relative;
+  min-width: 0;
+}
+
+.compact-view .post-body,
+.compact-view .post-image-container {
+  display: none;
+}
+
+.compact-view .post-title {
+  font-size: 14px;
+  margin-bottom: 4px;
+  line-height: 1.3;
+  text-align: left;
+}
+
+.compact-view .post-meta {
+  font-size: 11px;
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+.compact-view .post-actions-bar {
+  margin-top: 6px;
+}
+
+
+/* CARD VIEW */
+
+.card-view .post-card {
+  flex-direction: column;
+  padding: 0;
+}
+
+.card-view .post-content {
+  padding: 16px;
+}
+
+.card-view .post-thumbnail {
+  display: none;
+}
+
+.card-view .post-image-container {
+  margin: 12px 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  max-width: calc(100% - 32px);
+}
+
+.card-view .post-image {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.card-view .post-image:hover {
+  transform: scale(1.02);
+}
+
+.card-view .post-title {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.card-view .post-body {
+  display: block;
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+/* META */
+
+.post-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+}
+
+.post-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  gap: 12px;
+}
+
+.post-meta-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+  flex: 1;
+  text-align: left;
+}
+
+.club {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.user,
+.time,
+.divider {
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* TITLE / BODY */
+
+.post-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: var(--text-primary);
+  line-height: 1.4;
+  text-align: left;
+}
+
+.post-body {
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.5;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+/* ACTION BAR */
+
+.post-actions-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+/* ACTION BUTTONS */
+
+.post-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-primary);
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.post-action-btn:hover {
+  background: var(--bg-page);
+  color: var(--text-primary);
+}
+
+/* AVATAR */
+
+.club-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border-default);
+}
+
+/* JOIN */
+
+.join-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 4px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.join-btn:hover {
+  background: var(--accent-hover);
+}
+
+.join-btn.joined {
+  background: color-mix(in srgb, var(--accent) 70%, var(--bg-page));
+}
+
+/* MENU / EXPAND */
+
+.post-menu-btn,
+.expand-btn {
+  background: none;
+  border: none;
+  padding: 6px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+.post-menu-btn:hover,
+.expand-btn:hover {
+  background: var(--bg-page);
+  color: var(--text-primary);
+}
+
+/* EXPANDED CONTENT */
+
+.compact-view .expanded-content {
+  margin-top: 12px;
+  border-top: 1px solid var(--border-default);
+  padding-top: 12px;
+  text-align: center; /* Center the image container */
+}
+
+.compact-view .expanded-text {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--text-primary);
+  text-align: left; /* Text content stays left-aligned */
+  margin-top: 12px;
+}
+
+/* Center the expanded image */
+.compact-view .expanded-image {
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin: 0 auto; /* Center horizontally */
+  display: block;
+}
+
+/* Ensure the post-meta and title remain left-aligned when expanded */
+.compact-view .post-card.expanded .post-meta,
+.compact-view .post-card.expanded .post-meta-left,
+.compact-view .post-card.expanded .post-title {
+  text-align: left;
+}
+
+/* MENU DROPDOWN */
+.post-menu-wrapper {
+  position: relative;
+}
+
+.post-menu-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+}
+
+/* Show dropdown when parent is hovered or has focus */
+.post-menu-wrapper:hover .post-menu-dropdown,
+.post-menu-wrapper:focus-within .post-menu-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: var(--text-primary);
+  cursor: pointer;
+  text-align: left;
+}
+
+.menu-item:hover {
+  background: var(--bg-page);
+}
+
+.menu-icon {
+  font-size: 16px;
+  color: var(--text-muted);
+}
+
+.menu-divider {
+  border: none;
+  border-top: 1px solid var(--border-default);
+  margin: 4px 0;
+}
+
+.flag-item {
+  color: #ff4500;
+}
+
+.flag-item .menu-icon {
+  color: #ff4500;
+}
+
+
+/* Campus Connect additions */
+.pinned-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #0e7a3d;
+  background: #e6f4ea;
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
+  margin-right: 0.35rem;
+  vertical-align: middle;
+}
+
+.post-link {
+  display: block;
+  margin: 0.4rem 0;
+  color: #0079d3;
+  word-break: break-all;
+  font-size: 0.95rem;
+}
+
+.post-attachments {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin: 0.4rem 0;
+}
+
+.post-attachment {
+  color: #0079d3;
+  font-size: 0.9rem;
+  word-break: break-all;
+}

@@ -1,0 +1,77 @@
+.announcement-card {
+  border: 1px solid var(--border-color, #e0e0e0);
+  border-left: 4px solid #0079d3;
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  margin-bottom: 0.9rem;
+  background: var(--bg-primary, #fff);
+}
+
+.announcement-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.announcement-category {
+  background: #0079d3;
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  font-weight: 700;
+}
+
+.announcement-club {
+  background: #eee;
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  font-weight: 600;
+}
+
+.announcement-date {
+  margin-left: auto;
+  opacity: 0.75;
+}
+
+.announcement-title {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+}
+
+.announcement-content {
+  margin: 0 0 0.5rem;
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+.announcement-link,
+.announcement-attachment {
+  display: block;
+  color: #0079d3;
+  word-break: break-all;
+  font-size: 0.92rem;
+  margin-bottom: 0.25rem;
+}
+
+.announcement-attachments {
+  margin-bottom: 0.4rem;
+}
+
+.announcement-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.announcement-delete {
+  background: none;
+  border: none;
+  color: #c0392b;
+  cursor: pointer;
+  font-weight: 600;
+}

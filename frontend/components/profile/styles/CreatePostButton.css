@@ -1,0 +1,31 @@
+.create-post-wrapper {
+  margin: 16px auto;
+  width: fit-content;
+}
+
+.create-post-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 16px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.create-post-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.create-post-btn:hover {
+  background: var(--bg-page);
+  border-color: var(--border-default);
+}

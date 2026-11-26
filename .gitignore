@@ -1,0 +1,13 @@
+node_modules/
+**/.env
+**/.env.*
+backend/env
+frontend/env
+
+# Builds
+frontend/dist/
+backend/dist/
+
+# Local uploads (dev files; production uses Cloudinary)
+backend/Uploads/
+backend/uploads/

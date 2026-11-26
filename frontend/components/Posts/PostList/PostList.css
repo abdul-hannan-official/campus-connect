@@ -1,0 +1,14 @@
+.postList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.postList:empty::before {
+  content: "No posts yet.";
+  color: var(--text-muted);
+  font-size: 16px;
+  text-align: center;
+  padding: 40px 20px;
+}

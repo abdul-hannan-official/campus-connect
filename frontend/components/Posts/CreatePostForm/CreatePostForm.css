@@ -1,0 +1,132 @@
+.create-post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* INPUT */
+
+.input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--bg-page);
+  border: 1.5px solid var(--border-default);
+  border-radius: 9999px;
+  padding: 0 16px;
+  height: 50px;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+  font-weight: 500;
+  outline: none;
+  color: var(--text-primary);
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+.input-required {
+  color: var(--accent);
+  margin-left: -4px;
+  font-size: 1.3em;
+}
+
+.title-count {
+  position: absolute;
+  right: 16px;
+  bottom: 4px;
+  font-size: 0.9em;
+  color: var(--text-muted);
+}
+
+/* TEXTAREA */
+
+.textarea-wrap {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-default);
+  border-radius: 12px;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 90px;
+  border: none;
+  resize: vertical;
+  outline: none;
+  background: transparent;
+  padding: 12px;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.textarea::placeholder {
+  color: var(--text-muted);
+}
+
+/* LINK */
+
+.link-wrap {
+  margin-top: 0;
+}
+
+/* IMAGE */
+
+.dropzone {
+  width: 100%;
+  min-height: 145px;
+  border: 1.5px dashed var(--border-default);
+  border-radius: 18px;
+  background: var(--bg-page);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.dropzone:hover {
+  background: var(--bg-surface);
+}
+
+.image-preview {
+  margin-top: 8px;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+/* BUTTONS */
+
+.btn-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.btn {
+  border: none;
+  border-radius: 9999px;
+  padding: 8px 22px;
+  font-weight: bold;
+  background: var(--border-default);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.btn.primary:disabled {
+  background: color-mix(in srgb, var(--accent) 30%, var(--bg-page));
+  color: var(--text-muted);
+}

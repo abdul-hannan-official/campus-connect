@@ -1,0 +1,80 @@
+.club-request-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.club-request-dialog {
+  background: var(--bg-primary, #fff);
+  color: var(--text-primary, #1a1a2e);
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 460px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+.club-request-dialog h3 {
+  margin: 0 0 0.25rem;
+}
+
+.club-request-sub {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  opacity: 0.75;
+}
+
+.club-request-dialog label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.club-request-dialog input,
+.club-request-dialog textarea {
+  display: block;
+  width: 100%;
+  margin-top: 0.35rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--border-color, #ddd);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  background: var(--bg-primary, #fff);
+  color: inherit;
+}
+
+.club-request-error {
+  color: #c0392b;
+  font-size: 0.9rem;
+}
+
+.club-request-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+}
+
+.club-request-actions .btn {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.club-request-actions .btn.primary {
+  background: #0079d3;
+  color: #fff;
+}
+
+.club-request-actions .btn.secondary {
+  background: #eee;
+  color: #333;
+}

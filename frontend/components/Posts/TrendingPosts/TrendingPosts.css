@@ -1,0 +1,29 @@
+.trending-posts {
+  width: 100%;
+}
+
+.posts-container {
+  width: 100%;
+}
+
+/* Ensure proper post card styling */
+.posts-container.card-view .post-card,
+.posts-container.compact-view .post-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-top: none;
+  margin: 0;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.posts-container.card-view .post-card:first-child,
+.posts-container.compact-view .post-card:first-child {
+  border-top: 1px solid var(--border-default);
+  border-radius: 8px 8px 0 0;
+}
+
+.posts-container.card-view .post-card:last-child,
+.posts-container.compact-view .post-card:last-child {
+  border-radius: 0 0 8px 8px;
+}

@@ -1,0 +1,181 @@
+.events-page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.events-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.events-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.events-filters {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.filter-btn {
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.filter-btn.active {
+  background: #0079d3;
+  border-color: #0079d3;
+  color: #fff;
+}
+
+.events-error {
+  color: #c0392b;
+}
+
+.events-calendar {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.events-empty {
+  opacity: 0.75;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.event-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+  background: #fff;
+}
+
+.event-card-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.event-category {
+  background: #0079d3;
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  font-weight: 700;
+}
+
+.event-cancelled {
+  background: #c0392b;
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  font-weight: 700;
+}
+
+.event-date {
+  margin-left: auto;
+  opacity: 0.75;
+}
+
+.event-title {
+  margin: 0 0 0.35rem;
+  font-size: 1.1rem;
+}
+
+.event-desc {
+  margin: 0 0 0.5rem;
+  line-height: 1.5;
+}
+
+.event-meta {
+  margin: 0.15rem 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.event-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.7rem;
+}
+
+.events-page .btn,
+.event-modal .btn,
+.event-form .btn {
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.events-page .btn.primary,
+.event-modal .btn.primary,
+.event-form .btn.primary {
+  background: #0079d3;
+  color: #fff;
+}
+
+.events-page .btn.secondary,
+.event-modal .btn.secondary,
+.event-form .btn.secondary {
+  background: #eee;
+  color: #333;
+}
+
+.events-page .btn.danger,
+.event-modal .btn.danger {
+  background: #fdecea;
+  color: #c0392b;
+}
+
+.event-modal-overlay,
+.event-form-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.event-modal,
+.event-form {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.event-modal h2,
+.event-form h2 {
+  margin-top: 0;
+}

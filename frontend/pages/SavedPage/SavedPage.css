@@ -1,0 +1,19 @@
+.saved-title {
+  font-size: 1.4rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.saved-empty {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.saved-empty .btn.primary {
+  background: #0079d3;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.55rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
