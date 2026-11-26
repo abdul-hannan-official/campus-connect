@@ -45,6 +45,13 @@ const HomePage = () => {
   const [posts, setPosts] = useState([]);
   const PAGE_LIMIT = 20;
 
+  // Declared up here: the "#announcements" effect below reads location in
+  // its dependency array, and reading it before this line used to throw
+  // "Cannot access 'location' before initialization" and blank the page.
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isPopular = location.pathname === "/popular";
+
   // Official department announcements (global + the user's joined clubs).
   const [announcements, setAnnouncements] = useState([]);
   const [announcementCount, setAnnouncementCount] = useState(0);
@@ -96,11 +103,7 @@ const HomePage = () => {
     }
   }, [location.hash]);
 
-  const navigate = useNavigate();
   const [isLoadingPosts, setIsLoadingPosts] = useState(true);
-
-  const location = useLocation();
-  const isPopular = location.pathname === "/popular";
 
   // Initialize viewMode from localStorage
   const [viewMode, setViewMode] = useState(() => {
