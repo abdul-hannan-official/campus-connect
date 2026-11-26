@@ -24,7 +24,14 @@ export default function Login({ onLogin, inModal, switchMode }) {
         { email, password },
         { withCredentials: true },
       );
-      onLogin();
+
+      // A failure refreshing the session must NOT report the login itself
+      // as failed — the cookie is already set at this point.
+      try {
+        if (onLogin) await onLogin();
+      } catch (err) {
+        console.error("Post-login session refresh failed:", err);
+      }
 
       navigate("/");
     } catch (err) {

@@ -145,7 +145,7 @@ export default function AppRoutes({
           path="/signup"
           element={
             !currentUser ? (
-              <Signup onSignup={onLogin} />
+              <Signup onLogin={onLogin} />
             ) : (
               <HomePage
                 user={currentUser}

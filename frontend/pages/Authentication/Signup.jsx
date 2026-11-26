@@ -5,7 +5,10 @@ import { useState } from "react";
 import OAuthButtons from "../../components/Authentication/OAuthButtons.jsx";
 import AuthSidePanel from "../../components/Authentication/AuthSidePanel.jsx";
 
-export default function Signup({ onLogin, inModal, switchMode }) {
+export default function Signup({ onLogin, onSignup, inModal, switchMode }) {
+  // routes.jsx passes onLogin; accept onSignup too so a prop-name mismatch
+  // can never again turn a successful signup into "Signup failed".
+  const handleAuthDone = onLogin || onSignup;
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -14,12 +17,15 @@ export default function Signup({ onLogin, inModal, switchMode }) {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [postSignupHint, setPostSignupHint] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSubmitting) return;
     setError("");
     setSuccess("");
     setPostSignupHint("");
+    setIsSubmitting(true);
 
     try {
       await axios.post(
@@ -38,10 +44,18 @@ export default function Signup({ onLogin, inModal, switchMode }) {
         setPostSignupHint("");
       }, 2000);
 
-      onLogin();
+      // Refresh the logged-in user. A failure here must NOT report the
+      // signup itself as failed — the account already exists at this point.
+      try {
+        if (handleAuthDone) await handleAuthDone();
+      } catch (err) {
+        console.error("Post-signup session refresh failed:", err);
+      }
       navigate("/");
     } catch (err) {
       setError(err.response?.data?.message || "Signup failed");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -94,11 +108,11 @@ export default function Signup({ onLogin, inModal, switchMode }) {
             required
           />
 
-          <button className="auth-btn" type="submit">
-            Sign Up
+          <button className="auth-btn" type="submit" disabled={isSubmitting}>
+            {isSubmitting ? "Creating account…" : "Sign Up"}
           </button>
 
-          <OAuthButtons onLogin={onLogin} />
+          <OAuthButtons onLogin={handleAuthDone} />
 
           <p className="auth-small">
             Already have an account?{" "}

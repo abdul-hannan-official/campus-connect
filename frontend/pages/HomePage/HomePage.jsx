@@ -253,7 +253,7 @@ const HomePage = () => {
               withCredentials: true,
             });
 
-        const fetchedPosts = res.data.posts.map((p) => ({
+        const fetchedPosts = (res.data.posts || []).map((p) => ({
           id: p._id,
           _id: p._id,
           club: p.club || "",
