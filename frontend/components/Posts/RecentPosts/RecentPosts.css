@@ -1,6 +1,8 @@
 .recent-posts-box {
   background: var(--bg-surface);
-  border-radius: 8px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
   margin-bottom: 16px;
   overflow: hidden;
   transition: background-color 0.3s;

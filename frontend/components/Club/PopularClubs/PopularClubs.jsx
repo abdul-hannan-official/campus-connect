@@ -1,4 +1,5 @@
 import { useState } from "react";
+import InitialAvatar, { stripRedditPrefix } from "../../Avatar/InitialAvatar.jsx";
 import "./PopularClubs.css";
 
 const PopularClubs = ({ clubs }) => {
@@ -19,15 +20,14 @@ const PopularClubs = ({ clubs }) => {
       <div className="clubs-list">
         {displayedClubs.map((club, index) => (
           <div key={index} className="club-item">
-            <div className="club-avatar">
-              <img
-                src={club.avatar}
-                alt={club.name}
-                className="club-avatar-img"
-              />
-            </div>
+            <InitialAvatar
+              name={club.name}
+              iconUrl={club.avatar}
+              size={32}
+              className="club-avatar"
+            />
             <div className="club-info">
-              <span className="club-name">r/{club.name}</span>
+              <span className="club-name">{stripRedditPrefix(club.name)}</span>
               <span className="club-members">
                 {club.members} members
               </span>

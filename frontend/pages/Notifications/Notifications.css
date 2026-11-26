@@ -45,7 +45,7 @@
 }
 
 .header-btn:hover {
-  background: rgba(255, 69, 0, 0.08);
+  background: rgba(22, 101, 52, 0.08);
 }
 
 /* NOTIFICATIONS SCROLL AREA */
@@ -101,5 +101,5 @@
 }
 
 .expand-earlier-btn:hover {
-  background: rgba(255, 69, 0, 0.08);
+  background: rgba(22, 101, 52, 0.08);
 }

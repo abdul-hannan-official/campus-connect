@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { FaCheckCircle } from "react-icons/fa";
 import axios from "axios";
 import SearchItem from "../../components/SearchItem/SearchItem";
 import LeftSidebar from "../../components/LeftSidebar/LeftSidebar";
@@ -64,8 +65,8 @@ export default function Explore() {
 
         {requestSent && (
           <p className="sr-request-sent">
-            ✅ Your club request was submitted. An admin will approve or
-            reject it — the club appears here once approved.
+            <FaCheckCircle /> Your club request was submitted. An admin will
+            approve or reject it — the club appears here once approved.
           </p>
         )}
 

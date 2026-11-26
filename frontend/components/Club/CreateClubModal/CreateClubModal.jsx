@@ -89,7 +89,7 @@ const CreateClubModal = ({ onClose }) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: cleanName,
-          title: `r/${cleanName}`,
+          title: cleanName,
           description,
           bannerUrl: finalBannerUrl,
           iconUrl: finalIconUrl,
@@ -138,11 +138,11 @@ const CreateClubModal = ({ onClose }) => {
           {iconPreview ? (
             <img src={iconPreview} alt="icon" className="cc-preview-icon-img" />
           ) : (
-            <div className="cc-preview-icon-placeholder">r/</div>
+            <div className="cc-preview-icon-placeholder">{name.replace(/^r\//, "").charAt(0).toUpperCase() || "C"}</div>
           )}
         </div>
         <div>
-          <div className="cc-preview-name">{name || "r/your_club"}</div>
+          <div className="cc-preview-name">{name.replace(/^r\//, "") || "your_club"}</div>
           <div className="cc-preview-meta">1 member · 1 online</div>
         </div>
       </div>

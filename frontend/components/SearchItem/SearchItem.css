@@ -66,7 +66,7 @@
 .sp-thumb {
   width: 80px;
   height: 65px;
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   object-fit: cover;
 }
 
@@ -138,14 +138,15 @@
 /* JOIN / LEAVE BUTTON — ORANGE ACCENT ONLY */
 .sc-join-btn {
   margin-left: auto;
-  padding: 6px 14px;
+  padding: 7px 16px;
   border-radius: 999px;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   border: none;
   background: var(--accent);
   color: #ffffff;
+  box-shadow: var(--shadow-sm);
   transition: background-color 0.15s ease, transform 0.15s ease;
 }
 
@@ -157,10 +158,16 @@
   transform: scale(0.96);
 }
 
-/* leave uses same orange theme (no behavior change requested) */
+/* Leave reads as a secondary (outlined) action. */
 .sc-join-btn.leave {
-  background: var(--accent);
-  color: #ffffff;
+  background: var(--bg-surface);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  box-shadow: none;
+}
+
+.sc-join-btn.leave:hover {
+  background: var(--accent-soft);
 }
 
 /* META */

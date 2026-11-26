@@ -38,7 +38,7 @@ function ClubSidebar({
   return (
     <div className="clubSidebar">
       <div className="aboutSection">
-        <h2>r/{club.name}</h2>
+        <h2>{club.title || club.name}</h2>
         <p className="description">{club.description}</p>
 
         <div className="stats">

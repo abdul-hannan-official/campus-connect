@@ -46,7 +46,7 @@ export default function ModeratorQueue({ clubId }) {
 
   if (loading) return <p>Loading reports…</p>;
   if (error) return <p className="queue-error">{error}</p>;
-  if (reports.length === 0) return <p>No open reports. 🎉</p>;
+  if (reports.length === 0) return <p>No open reports.</p>;
 
   return (
     <div className="moderator-queue">

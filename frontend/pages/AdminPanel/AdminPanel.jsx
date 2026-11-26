@@ -1,4 +1,13 @@
 import { useEffect, useState } from "react";
+import {
+  FaUsers,
+  FaShieldAlt,
+  FaLayerGroup,
+  FaClock,
+  FaFlag,
+  FaCalendarAlt,
+  FaBullhorn,
+} from "react-icons/fa";
 import axios from "axios";
 import "./AdminPanel.css";
 import AnnouncementCard from "../Announcements/AnnouncementCard.jsx";
@@ -176,13 +185,41 @@ export default function AdminPanel({ currentUser }) {
 
       {tab === "overview" && overview && (
         <div className="admin-stats">
-          <div className="stat-card"><strong>{overview.totalUsers}</strong><span>Users</span></div>
-          <div className="stat-card"><strong>{overview.totalAdmins}</strong><span>Admins</span></div>
-          <div className="stat-card"><strong>{overview.totalClubs}</strong><span>Clubs</span></div>
-          <div className="stat-card"><strong>{overview.pendingRequests}</strong><span>Pending club requests</span></div>
-          <div className="stat-card"><strong>{overview.openReports}</strong><span>Open reports</span></div>
-          <div className="stat-card"><strong>{overview.upcomingEvents}</strong><span>Upcoming events</span></div>
-          <div className="stat-card"><strong>{overview.totalAnnouncements}</strong><span>Announcements</span></div>
+          <div className="stat-card stat-card--primary">
+            <span className="stat-icon"><FaUsers /></span>
+            <strong>{overview.totalUsers}</strong>
+            <span>Users</span>
+          </div>
+          <div className="stat-card">
+            <span className="stat-icon"><FaShieldAlt /></span>
+            <strong>{overview.totalAdmins}</strong>
+            <span>Admins</span>
+          </div>
+          <div className="stat-card">
+            <span className="stat-icon"><FaLayerGroup /></span>
+            <strong>{overview.totalClubs}</strong>
+            <span>Clubs</span>
+          </div>
+          <div className="stat-card">
+            <span className="stat-icon"><FaClock /></span>
+            <strong>{overview.pendingRequests}</strong>
+            <span>Pending club requests</span>
+          </div>
+          <div className="stat-card">
+            <span className="stat-icon"><FaFlag /></span>
+            <strong>{overview.openReports}</strong>
+            <span>Open reports</span>
+          </div>
+          <div className="stat-card">
+            <span className="stat-icon"><FaCalendarAlt /></span>
+            <strong>{overview.upcomingEvents}</strong>
+            <span>Upcoming events</span>
+          </div>
+          <div className="stat-card">
+            <span className="stat-icon"><FaBullhorn /></span>
+            <strong>{overview.totalAnnouncements}</strong>
+            <span>Announcements</span>
+          </div>
         </div>
       )}
 

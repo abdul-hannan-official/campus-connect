@@ -1,4 +1,5 @@
 import { FaArrowUp, FaRegCommentAlt } from "react-icons/fa";
+import InitialAvatar, { stripRedditPrefix } from "../../Avatar/InitialAvatar.jsx";
 import "./RecentPosts.css";
 
 const RecentPosts = ({
@@ -44,23 +45,22 @@ const RecentPosts = ({
           >
             <div className="recent-post-content">
               <div className="recent-post-header">
-                <img
-                  src={
+                <InitialAvatar
+                  name={post.club || post.user}
+                  iconUrl={
                     post.clubIcon
                       ? `${import.meta.env.VITE_API_URL}${post.clubIcon}`
-                      : `https://api.dicebear.com/7.x/thumbs/svg?seed=${encodeURIComponent(post.club)}`
-                  }                  
+                      : null
+                  }
+                  size={20}
                   className="recent-post-user-avatar"
-                  alt={post.club ? `r/${post.club}` : `u/${post.user}`}
-                  onClick={(e) => handleClubClick(e, post.club)}
-                  style={{ cursor: 'pointer' }}
                 />
                 <span
                   className="recent-post-club"
                   onClick={(e) => handleClubClick(e, post.club)}
                   style={{ cursor: 'pointer' }}
                 >
-                  {post.club ? `r/${post.club}` : `u/${post.user}`}
+                  {post.club ? stripRedditPrefix(post.club) : stripRedditPrefix(post.user)}
                 </span>
                 <span className="recent-post-divider">•</span>
                 <span className="recent-post-time">

@@ -1,6 +1,8 @@
 .popular-clubs {
   background: var(--bg-surface);
-  border-radius: 8px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
   margin-bottom: 16px;
   overflow: hidden;
 }
@@ -34,7 +36,7 @@
 }
 
 .club-item:hover {
-  background: var(--bg-page);
+  background: var(--hover-overlay);
 }
 
 .club-avatar {
@@ -59,13 +61,13 @@
 }
 
 .club-name {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--text-primary);
 }
 
 .club-members {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--text-secondary);
 }
 

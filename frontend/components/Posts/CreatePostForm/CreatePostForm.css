@@ -15,6 +15,13 @@
   border-radius: 9999px;
   padding: 0 16px;
   height: 50px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input-wrap:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(22, 101, 52, 0.12);
+  background: var(--bg-surface);
 }
 
 .input {
@@ -50,7 +57,13 @@
 .textarea-wrap {
   background: var(--bg-surface);
   border: 1.5px solid var(--border-default);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.textarea-wrap:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(22, 101, 52, 0.12);
 }
 
 .textarea {

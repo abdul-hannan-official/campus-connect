@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import InitialAvatar, { stripRedditPrefix } from "../Avatar/InitialAvatar.jsx";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -32,20 +33,17 @@ export default function TopClubs() {
             className="sr-side-item no-router-click"
             onClick={() => console.log("clicked club:", c.name)}
           >
-            <img
-              className="sr-side-icon"
-              src={
-                c?.iconUrl
-                  ? `${import.meta.env.VITE_API_URL}${c.iconUrl}`
-                  : `https://api.dicebear.com/7.x/thumbs/svg?seed=${encodeURIComponent(
-                      c.name,
-                    )}`
+            <InitialAvatar
+              name={c.name}
+              iconUrl={
+                c?.iconUrl ? `${import.meta.env.VITE_API_URL}${c.iconUrl}` : null
               }
-              alt={`${c.name} avatar`}
+              size={32}
+              className="sr-side-icon"
             />
             <div>
               <div className="sr-side-title">
-                {c.name.startsWith("r/") ? c.name : "r/" + c.name}
+                {stripRedditPrefix(c.name)}
               </div>
               <div className="sr-side-count">
                 {Number(c.memberCount || 0).toLocaleString()} members

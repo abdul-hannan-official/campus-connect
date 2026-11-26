@@ -1,10 +1,11 @@
 .announcement-card {
-  border: 1px solid var(--border-color, #e0e0e0);
-  border-left: 4px solid #0e7a4d;
-  border-radius: 10px;
-  padding: 1rem 1.1rem;
+  border: 1px solid var(--border-default);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 1.1rem 1.25rem;
   margin-bottom: 0.9rem;
-  background: var(--bg-primary, #fff);
+  background: var(--bg-surface);
 }
 
 .announcement-head {
@@ -17,28 +18,35 @@
 }
 
 .announcement-category {
-  background: #0e7a4d;
+  background: var(--accent);
   color: #fff;
   border-radius: 999px;
-  padding: 0.15rem 0.6rem;
+  padding: 0.2rem 0.65rem;
   font-weight: 700;
 }
 
 .announcement-club {
-  background: #eee;
+  background: var(--bg-muted);
+  color: var(--text-secondary);
   border-radius: 999px;
-  padding: 0.15rem 0.6rem;
+  padding: 0.2rem 0.65rem;
   font-weight: 600;
 }
 
 .announcement-date {
   margin-left: auto;
-  opacity: 0.75;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 600;
 }
 
 .announcement-title {
   margin: 0 0 0.35rem;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
 }
 
 .announcement-content {
@@ -49,10 +57,13 @@
 
 .announcement-link,
 .announcement-attachment {
-  display: block;
-  color: #0e7a4d;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent);
   word-break: break-all;
   font-size: 0.92rem;
+  font-weight: 600;
   margin-bottom: 0.25rem;
 }
 
@@ -69,9 +80,11 @@
 }
 
 .announcement-delete {
-  background: none;
+  background: var(--danger-soft);
   border: none;
-  color: #c0392b;
+  color: var(--danger);
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 999px;
 }

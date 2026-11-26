@@ -1,7 +1,7 @@
 .events-page {
-  max-width: 960px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 24px 20px 40px;
 }
 
 .events-header {
@@ -14,7 +14,9 @@
 
 .events-header h1 {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
 }
 
 .events-filters {
@@ -24,18 +26,26 @@
 }
 
 .filter-btn {
-  padding: 0.45rem 1rem;
+  padding: 0.5rem 1.1rem;
   border-radius: 999px;
-  border: 1px solid #ccc;
-  background: #fff;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
   cursor: pointer;
   font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .filter-btn.active {
-  background: #0e7a4d;
-  border-color: #0e7a4d;
+  background: var(--accent);
+  border-color: var(--accent);
   color: #fff;
+  box-shadow: var(--shadow-sm);
 }
 
 .events-error {
@@ -43,11 +53,28 @@
 }
 
 .events-calendar {
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  padding: 1rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 1.25rem;
   margin-bottom: 1.5rem;
+}
+
+.events-calendar .fc-button-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.events-calendar .fc-button-primary:hover,
+.events-calendar .fc-button-primary:not(:disabled).fc-button-active {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.events-calendar .fc-event {
+  border-radius: 6px;
+  font-weight: 600;
 }
 
 .events-empty {
@@ -63,10 +90,16 @@
 }
 
 .event-card {
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  padding: 1rem 1.1rem;
-  background: #fff;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 1.15rem 1.25rem;
+  background: var(--bg-surface);
+  transition: box-shadow 0.15s ease;
+}
+
+.event-card:hover {
+  box-shadow: var(--shadow-md);
 }
 
 .event-card-head {
@@ -79,10 +112,10 @@
 }
 
 .event-category {
-  background: #0e7a4d;
+  background: var(--accent);
   color: #fff;
   border-radius: 999px;
-  padding: 0.15rem 0.6rem;
+  padding: 0.2rem 0.65rem;
   font-weight: 700;
 }
 
@@ -96,12 +129,18 @@
 
 .event-date {
   margin-left: auto;
-  opacity: 0.75;
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 600;
 }
 
 .event-title {
   margin: 0 0 0.35rem;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
 }
 
 .event-desc {
@@ -110,9 +149,17 @@
 }
 
 .event-meta {
-  margin: 0.15rem 0;
+  margin: 0.25rem 0;
   font-size: 0.9rem;
-  opacity: 0.8;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.event-meta svg {
+  color: var(--accent);
 }
 
 .event-actions {
@@ -125,7 +172,7 @@
 .events-page .btn,
 .event-modal .btn,
 .event-form .btn {
-  padding: 0.45rem 1rem;
+  padding: 0.5rem 1.1rem;
   border-radius: 999px;
   border: none;
   cursor: pointer;
@@ -135,21 +182,28 @@
 .events-page .btn.primary,
 .event-modal .btn.primary,
 .event-form .btn.primary {
-  background: #0e7a4d;
+  background: var(--accent);
   color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.events-page .btn.primary:hover,
+.event-modal .btn.primary:hover,
+.event-form .btn.primary:hover {
+  background: var(--accent-hover);
 }
 
 .events-page .btn.secondary,
 .event-modal .btn.secondary,
 .event-form .btn.secondary {
-  background: #eee;
-  color: #333;
+  background: var(--bg-muted);
+  color: var(--text-primary);
 }
 
 .events-page .btn.danger,
 .event-modal .btn.danger {
-  background: #fdecea;
-  color: #c0392b;
+  background: var(--danger-soft);
+  color: var(--danger);
 }
 
 .event-modal-overlay,
@@ -166,8 +220,9 @@
 
 .event-modal,
 .event-form {
-  background: #fff;
-  border-radius: 12px;
+  background: var(--bg-surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
   padding: 1.5rem;
   width: 100%;
   max-width: 520px;

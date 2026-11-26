@@ -3,6 +3,7 @@ import LeftSidebar from "../../components/LeftSidebar/LeftSidebar";
 import TrendingPosts from "../../components/Posts/TrendingPosts/TrendingPosts";
 import TopClubs from "../../components/TopClubs/TopClubs";
 import axios from "axios";
+import { FaThLarge, FaList } from "react-icons/fa";
 import { resolveMediaUrl } from "../../src/utils/mediaUrl.js";
 import "./GuestHomePage.css";
 
@@ -190,13 +191,22 @@ export default function GuestHomePage({ setShowAuth }) {
        />
 
       <div className="main-feed">
+        <header className="page-header guest-hero">
+          <h1>Welcome to Campus Connect</h1>
+          <p>
+            Clubs, events and announcements from your CS department — log in
+            to join the discussion.
+          </p>
+        </header>
+
         <div className="feed-controls">
           <div className="sort-options">
-            <button 
-              className="view-toggle-btn" 
+            <button
+              className="view-toggle-btn"
               onClick={toggleViewMode}
+              title={viewMode === "card" ? "Switch to compact view" : "Switch to card view"}
             >
-              {viewMode === "card" ? "☐" : "≡"}
+              {viewMode === "card" ? <FaList /> : <FaThLarge />}
             </button>
           </div>
         </div>

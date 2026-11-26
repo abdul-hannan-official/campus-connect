@@ -1,12 +1,14 @@
-/* POST CARD */
+/* POST CARD — standalone modern card */
 
 .post-card {
   background: var(--bg-surface);
   border: 1px solid var(--border-default);
-  border-top: none;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
   margin: 0;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
   width: 100%;
+  overflow: hidden;
 }
 
 /* Add cursor pointer only to clickable elements: */
@@ -18,16 +20,7 @@
 }
 
 .post-card:hover {
-  background: var(--bg-page);
-}
-
-.post-card:first-child {
-  border-top: 1px solid var(--border-default);
-  border-radius: 8px 8px 0 0;
-}
-
-.post-card:last-child {
-  border-radius: 0 0 8px 8px;
+  box-shadow: var(--shadow-md);
 }
 
 /* Compact View */
@@ -221,20 +214,20 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  background: none;
+  background: var(--bg-muted);
   border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
+  padding: 7px 12px;
+  border-radius: 999px;
   font-size: 12px;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--text-secondary);
   cursor: pointer;
-  opacity: 0.8;
+  transition: background-color 0.15s, color 0.15s;
 }
 
 .post-action-btn:hover {
-  background: var(--bg-page);
-  color: var(--text-primary);
+  background: var(--accent-soft);
+  color: var(--accent);
 }
 
 /* AVATAR */
@@ -380,25 +373,33 @@
 }
 
 .flag-item {
-  color: #ff4500;
+  color: var(--danger);
 }
 
 .flag-item .menu-icon {
-  color: #ff4500;
+  color: var(--danger);
 }
 
 
 /* Campus Connect additions */
 .pinned-badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   font-size: 0.75rem;
   font-weight: 700;
-  color: #0e7a3d;
-  background: #e6f4ea;
+  color: var(--accent);
+  background: var(--accent-soft);
   border-radius: 999px;
-  padding: 0.1rem 0.5rem;
+  padding: 0.2rem 0.55rem;
   margin-right: 0.35rem;
   vertical-align: middle;
+}
+
+.post-link-icon {
+  font-size: 0.8em;
+  margin-right: 4px;
+  vertical-align: -1px;
 }
 
 .post-link {

@@ -1,4 +1,5 @@
 import "./AnnouncementCard.css";
+import { FaCalendarAlt, FaLink, FaPaperclip } from "react-icons/fa";
 import { resolveMediaUrl } from "../../src/utils/mediaUrl.js";
 
 // One official departmental announcement.
@@ -17,7 +18,7 @@ export default function AnnouncementCard({ announcement, canDelete, onDelete }) 
           <span className="announcement-club">{announcement.club.name}</span>
         )}
         <span className="announcement-date" title="Published">
-          📅 {published}
+          <FaCalendarAlt /> {published}
         </span>
       </div>
 
@@ -33,7 +34,7 @@ export default function AnnouncementCard({ announcement, canDelete, onDelete }) 
           rel="noopener noreferrer"
           className="announcement-link"
         >
-          🔗 {announcement.link}
+          <FaLink /> {announcement.link}
         </a>
       )}
 
@@ -48,7 +49,7 @@ export default function AnnouncementCard({ announcement, canDelete, onDelete }) 
                 rel="noopener noreferrer"
                 className="announcement-attachment"
               >
-                📎 {decodeURIComponent(url.split("/").pop())}
+                <FaPaperclip /> {decodeURIComponent(url.split("/").pop())}
               </a>
             ))}
           </div>

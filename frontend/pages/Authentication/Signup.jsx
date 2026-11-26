@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import OAuthButtons from "../../components/Authentication/OAuthButtons.jsx";
+import AuthSidePanel from "../../components/Authentication/AuthSidePanel.jsx";
 
 export default function Signup({ onLogin, inModal, switchMode }) {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ export default function Signup({ onLogin, inModal, switchMode }) {
         { withCredentials: true }
       );
 
-      setSuccess("Account created successfully 🎉");
+      setSuccess("Account created successfully");
       setPostSignupHint(
         "To continue setting up your profile, please go to My Profile > Edit Profile"
       );
@@ -50,11 +51,7 @@ export default function Signup({ onLogin, inModal, switchMode }) {
         inModal ? "auth-modal-content" : ""
       }`}
     >
-      {!inModal && (
-        <div className="auth-left">
-          <span className="brand-wordmark">Campus&nbsp;Connect</span>
-        </div>
-      )}
+      {!inModal && <AuthSidePanel />}
 
       <div className="auth-right">
         <form className="auth-form" onSubmit={handleSubmit}>

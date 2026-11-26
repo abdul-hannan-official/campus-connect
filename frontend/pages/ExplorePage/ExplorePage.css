@@ -19,12 +19,28 @@
 
 /* Header */
 .sr-tabs {
-  background-color: var(--bg-elevated);
-  border-bottom: 1px solid var(--border-default);
-  padding-top: 20px;
-  position: fixed;
-  width:100%;
+  background-color: var(--bg-page);
+  padding: 8px 0 16px;
+  position: sticky;
   top: var(--navbar-height);
+  z-index: 50;
+}
+
+.sr-tabs h2 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.sr-tabs > span {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 999px;
+  padding: 5px 12px;
+  white-space: nowrap;
 }
 
 .sr-left-column{ 
@@ -112,20 +128,31 @@
 }
 /* Campus Connect: request-a-club button + confirmation line. */
 .sr-request-club-btn {
-  padding: 0.45rem 1rem;
+  padding: 0.55rem 1.1rem;
   border-radius: 999px;
   border: none;
-  background: #0e7a4d;
+  background: var(--accent);
   color: #fff;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   white-space: nowrap;
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.15s ease;
+}
+
+.sr-request-club-btn:hover {
+  background: var(--accent-hover);
 }
 
 .sr-request-sent {
-  background: #e8f5e9;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent-soft);
   border: 1px solid #a5d6a7;
-  border-radius: 10px;
+  color: var(--accent);
+  border-radius: var(--radius-md);
   padding: 0.7rem 1rem;
   margin: 0.75rem 0;
+  font-weight: 600;
 }

@@ -9,6 +9,14 @@ import AnnouncementCard from "../Announcements/AnnouncementCard.jsx";
 import { resolveMediaUrl } from "../../src/utils/mediaUrl.js";
 
 import axios from "axios";
+import {
+  FaBullhorn,
+  FaThLarge,
+  FaList,
+  FaLayerGroup,
+  FaUsers,
+  FaCalendarAlt,
+} from "react-icons/fa";
 import defaultAvatar from "../../assets/default-avatar.png";
 
 // Helper function to format time ago
@@ -39,6 +47,7 @@ const HomePage = () => {
 
   // Official department announcements (global + the user's joined clubs).
   const [announcements, setAnnouncements] = useState([]);
+  const [announcementCount, setAnnouncementCount] = useState(0);
   useEffect(() => {
     (async () => {
       try {
@@ -46,12 +55,46 @@ const HomePage = () => {
           `${import.meta.env.VITE_API_URL}/announcements`,
           { withCredentials: true }
         );
-        setAnnouncements(Array.isArray(res.data) ? res.data.slice(0, 5) : []);
+        const all = Array.isArray(res.data) ? res.data : [];
+        setAnnouncementCount(all.length);
+        setAnnouncements(all.slice(0, 5));
       } catch (err) {
         console.error("Announcements load error:", err);
       }
     })();
   }, []);
+
+  // Real counts for the stat row (existing endpoints only, no invented numbers).
+  const [homeStats, setHomeStats] = useState({ totalClubs: 0, upcomingEvents: 0 });
+  useEffect(() => {
+    (async () => {
+      try {
+        const [clubsRes, eventsRes] = await Promise.all([
+          axios.get(`${import.meta.env.VITE_API_URL}/clubs`, {
+            params: { page: 1, limit: 1 },
+            withCredentials: true,
+          }),
+          axios.get(`${import.meta.env.VITE_API_URL}/events`, {
+            params: { filter: "upcoming" },
+            withCredentials: true,
+          }),
+        ]);
+        setHomeStats({
+          totalClubs: clubsRes.data.total || 0,
+          upcomingEvents: Array.isArray(eventsRes.data) ? eventsRes.data.length : 0,
+        });
+      } catch (err) {
+        console.error("Home stats load error:", err);
+      }
+    })();
+  }, []);
+
+  // Sidebar "Announcements" link lands here.
+  useEffect(() => {
+    if (location.hash === "#announcements") {
+      document.getElementById("announcements")?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [location.hash]);
 
   const navigate = useNavigate();
   const [isLoadingPosts, setIsLoadingPosts] = useState(true);
@@ -569,9 +612,43 @@ const HomePage = () => {
 
       <div className="feed-wrapper">
         <div className="main-feed">
+          {!isPopular && (
+            <>
+              <header className="page-header">
+                <h1>Home</h1>
+                <p>Discussions from your clubs, plus official department announcements.</p>
+              </header>
+
+              <section className="home-stats" aria-label="Community overview">
+                <div className="stat-card stat-card--primary">
+                  <span className="stat-icon"><FaLayerGroup /></span>
+                  <strong>{homeStats.totalClubs}</strong>
+                  <span>Total clubs</span>
+                </div>
+                <div className="stat-card">
+                  <span className="stat-icon"><FaUsers /></span>
+                  <strong>{joinedClubs.length}</strong>
+                  <span>Your clubs</span>
+                </div>
+                <div className="stat-card">
+                  <span className="stat-icon"><FaCalendarAlt /></span>
+                  <strong>{homeStats.upcomingEvents}</strong>
+                  <span>Upcoming events</span>
+                </div>
+                <div className="stat-card">
+                  <span className="stat-icon"><FaBullhorn /></span>
+                  <strong>{announcementCount}</strong>
+                  <span>Announcements</span>
+                </div>
+              </section>
+            </>
+          )}
+
           {announcements.length > 0 && !isPopular && (
-            <section className="home-announcements">
-              <h2>📢 Announcements</h2>
+            <section className="home-announcements" id="announcements">
+              <h2>
+                <FaBullhorn className="section-icon" /> Announcements
+              </h2>
               {announcements.map((a) => (
                 <AnnouncementCard key={a._id} announcement={a} />
               ))}
@@ -618,8 +695,12 @@ const HomePage = () => {
                     )}
                   </div>
 
-                  <button className="view-toggle-btn" onClick={toggleViewMode}>
-                    {viewMode === "card" ? "☐" : "≡"}
+                  <button
+                    className="view-toggle-btn"
+                    onClick={toggleViewMode}
+                    title={viewMode === "card" ? "Switch to compact view" : "Switch to card view"}
+                  >
+                    {viewMode === "card" ? <FaList /> : <FaThLarge />}
                   </button>
                 </div>
               )}
@@ -698,7 +779,7 @@ const HomePage = () => {
 
       <div className="footer-text">
         <p className="footer-line">
-          Campus Connect Rules Privacy Policy User Agreement
+          Campus Connect • Community Guidelines • Privacy Policy
         </p>
         <p className="footer-copyright">
           Campus Connect © 2026. All rights reserved.

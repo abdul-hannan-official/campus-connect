@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useRef } from "react";
 import { FaTrash } from "react-icons/fa";
+import InitialAvatar, { stripRedditPrefix } from "../Avatar/InitialAvatar.jsx";
 
 import axios from "axios";
 
@@ -72,21 +73,18 @@ export default function SearchItem({
 
     return (
       <Link to={`/club/${data.name}`} className="sc-container">
-        <img
-          src={
-            data.iconUrl
-              ? `${import.meta.env.VITE_API_URL}${data.iconUrl}`
-              : `https://api.dicebear.com/7.x/thumbs/svg?seed=${encodeURIComponent(
-                  data.name
-                )}`
+        <InitialAvatar
+          name={data.name}
+          iconUrl={
+            data.iconUrl ? `${import.meta.env.VITE_API_URL}${data.iconUrl}` : null
           }
-          alt="club icon"
+          size={40}
           className="sc-icon"
         />
 
         <div className="sc-info">
           <div className="sc-title">
-            {data.name.startsWith("r/") ? data.name : "r/" + data.name}
+            {stripRedditPrefix(data.name)}
           </div>
           <div className="sc-members">
             {(data.memberCount ?? 0).toLocaleString()} members
@@ -137,21 +135,18 @@ export default function SearchItem({
       >
         <div className="sp-left">
           <div className="sp-meta">
-            <img
-              src={
+            <InitialAvatar
+              name={data.clubName}
+              iconUrl={
                 data?.iconUrl
                   ? `${import.meta.env.VITE_API_URL}${data.iconUrl}`
-                  : `https://api.dicebear.com/7.x/thumbs/svg?seed=${encodeURIComponent(
-                      data.clubName
-                    )}`
+                  : null
               }
-              alt="club icon"
+              size={20}
               className="sp-icon"
             />
             <span className="sp-club">
-              {data.clubName.startsWith("r/")
-                ? data.clubName
-                : "r/" + data.clubName}
+              {stripRedditPrefix(data.clubName)}
             </span>
             <span className="sp-time">• {timeAgo}</span>
           </div>
@@ -181,18 +176,19 @@ export default function SearchItem({
   if (type === "user") {
     return (
       <Link to={`/user/${data._id}`} className="su-container">
-        <img
-          className="su-avatar"
-          src={
+        <InitialAvatar
+          name={data.username}
+          iconUrl={
             data?.avatarUrl
               ? `${import.meta.env.VITE_API_URL}${data.avatarUrl}`
-              : `https://api.dicebear.com/7.x/thumbs/svg?seed=${data.username}`
+              : null
           }
-          alt="avatar"
+          size={40}
+          className="su-avatar"
         />
 
         <div>
-          <div className="su-name">u/{data.username}</div>
+          <div className="su-name">{data.username}</div>
           <div className="su-handle">@{data.username}</div>
         </div>
       </Link>
@@ -239,21 +235,18 @@ export default function SearchItem({
       >
         <div className="sp-left">
           <div className="sp-meta">
-            <img
-              src={
+            <InitialAvatar
+              name={data.clubName}
+              iconUrl={
                 data?.iconUrl
                   ? `${import.meta.env.VITE_API_URL}${data.iconUrl}`
-                  : `https://api.dicebear.com/7.x/thumbs/svg?seed=${encodeURIComponent(
-                      data.clubName
-                    )}`
+                  : null
               }
-              alt="club icon"
+              size={20}
               className="sp-icon"
             />
             <span className="sp-club">
-              {data.clubName.startsWith("r/")
-                ? data.clubName
-                : "r/" + data.clubName}
+              {stripRedditPrefix(data.clubName)}
             </span>
             <span className="sp-time">• {timeAgo}</span>
           </div>

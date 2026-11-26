@@ -1,5 +1,5 @@
 :root {
-  --navbar-height: 60px;
+  --navbar-height: 64px;
 }
 
 /* NAVBAR */
@@ -8,9 +8,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 20px;
+  padding: 10px 24px;
   background: var(--bg-surface);
   border-bottom: 1px solid var(--border-default);
+  box-shadow: var(--shadow-sm);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -27,6 +28,23 @@
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.nav-logo-mark {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+}
+
+.brand-green {
+  color: var(--accent);
 }
 
 .nav-logo-text {
@@ -56,7 +74,7 @@
 .nav-search {
   width: 100%;
   padding: 10px 48px 10px 16px;
-  border-radius: 20px;
+  border-radius: 999px;
 
   background: var(--search-bg);
   border: 1px solid var(--search-border);
@@ -75,6 +93,37 @@
 .nav-search:focus {
   background: var(--bg-surface);
   border-color: var(--search-border-focus);
+  box-shadow: 0 0 0 3px rgba(22, 101, 52, 0.12);
+}
+
+.nav-search--with-left-icon {
+  padding-left: 40px;
+  padding-right: 72px;
+}
+
+.search-icon--left {
+  right: auto;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.search-kbd {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: 6px;
+  padding: 3px 7px;
+  pointer-events: none;
+  white-space: nowrap;
 }
 
 .search-icon {
@@ -89,8 +138,8 @@
 
 .login-btn,
 .signup-btn {
-  padding: 8px 25px;
-  border-radius: 20px;
+  padding: 9px 22px;
+  border-radius: 999px;
   font-weight: bold;
   cursor: pointer;
   font-size: 14px;
@@ -145,17 +194,19 @@
 
 /* Create Post */
 .create-post-btn {
-  padding: 16px 12px;
-  border-radius: 20px;
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-default);
+  padding: 9px 16px;
+  border-radius: 999px;
+  background-color: var(--accent);
+  color: #fff;
+  border: none;
   font-weight: 600;
   font-size: 14px;
   transition: all 0.2s;
 }
 
 .create-post-btn:hover {
-  background: var(--bg-page);
+  background: var(--accent-hover);
+  color: #fff;
 }
 
 .create-text {
@@ -168,14 +219,17 @@
 
 .notification-badge {
   position: absolute;
-  top: 4px;
-  right: 4px;
-  background: var(--accent);
+  top: 2px;
+  right: 2px;
+  background: #dc2626;
   color: #fff;
-  border-radius: 50%;
-  width: 13px;
-  height: 13px;
+  border: 2px solid var(--bg-surface);
+  border-radius: 999px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
   font-size: 10px;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -191,22 +245,23 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background: none;
-  border: none;
-  padding: 4px 8px;
-  border-radius: 4px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  padding: 4px 12px 4px 4px;
+  border-radius: 999px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, border-color 0.2s;
 }
 
 .profile-btn:hover {
-  background: var(--bg-page);
+  background: var(--bg-muted);
+  border-color: var(--border-strong);
 }
 
 .profile-avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 4px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
   object-fit: cover;
 }
 
@@ -236,10 +291,11 @@
   margin-top: 8px;
   background: var(--bg-surface);
   border: 1px solid var(--border-default);
-  border-radius: 8px;
-  box-shadow: var(--shadow-sm);
-  min-width: 200px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  min-width: 220px;
   z-index: 1000;
+  overflow: hidden;
 }
 
 .profile-dropdown .dropdown-item {
@@ -518,11 +574,11 @@
 
 
 .noti-dropdown-item.unread {
-  background: rgba(255, 69, 0, 0.08);
+  background: rgba(22, 101, 52, 0.08);
 }
 
 .noti-dropdown-item.unread:hover {
-  background: rgba(255, 69, 0, 0.12);
+  background: rgba(22, 101, 52, 0.12);
 }
 
 .noti-empty {
@@ -560,17 +616,24 @@
 .nav-text-link {
   display: inline-flex;
   align-items: center;
-  padding: 0.4rem 0.6rem;
+  gap: 6px;
+  padding: 8px 12px;
   border-radius: 999px;
-  color: inherit;
+  color: var(--text-secondary);
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.92rem;
+  font-size: 13.5px;
   white-space: nowrap;
 }
 
 .nav-text-link:hover {
-  background: var(--hover-bg, rgba(0, 0, 0, 0.06));
+  background: var(--hover-overlay);
+  color: var(--text-primary);
+}
+
+.nav-text-icon {
+  font-size: 14px;
+  color: var(--accent);
 }
 
 @media (max-width: 760px) {
@@ -596,6 +659,24 @@
   /* Keep only the logo mark on small screens; the wordmark crowds the search. */
   .navbar .brand-wordmark {
     display: none;
+  }
+
+  .nav-logo-mark {
+    width: 30px;
+    height: 30px;
+  }
+
+  .search-kbd {
+    display: none;
+  }
+
+  /* Icon-only quick links on phones so the bar never overflows. */
+  .nav-text-link span {
+    display: none;
+  }
+
+  .nav-text-link {
+    padding: 8px;
   }
 
   .login-btn,

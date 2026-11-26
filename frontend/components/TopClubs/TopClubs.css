@@ -98,9 +98,10 @@
   background: var(--bg-surface);
   border: 1px solid var(--border-default);
   padding: 16px 18px;
-  border-radius: 8px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
   margin-bottom: 14px;
-  transition: 0.1s ease;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
 }
 
 .sr-result-card:hover {
@@ -130,8 +131,16 @@
   background: var(--bg-surface);
   border: 1px solid var(--border-default);
   padding: 20px;
-  border-radius: 10px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
   margin-bottom: 18px;
+}
+
+.sr-card h3 {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0 0 12px;
 }
 
 /* Club items */
@@ -140,15 +149,15 @@
   align-items: center;
   text-align: left;
   gap: 12px;
-  padding: 6px 0;
+  padding: 8px 10px;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   text-decoration: none;
   color: inherit;
 }
 
 .sr-side-item.no-router-click:hover {
-  background: var(--bg-elevated);
+  background: var(--hover-overlay);
 }
 
 .sr-side-icon {
@@ -191,7 +200,7 @@
   width: 38px;
   height: 38px;
   border: 4px solid var(--border-default);
-  border-top-color: var(--accent-upvote);
+  border-top-color: var(--accent);
   border-radius: 50%;
   animation: sr-spin 0.7s linear infinite;
 }

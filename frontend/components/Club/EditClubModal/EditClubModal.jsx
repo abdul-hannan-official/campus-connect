@@ -7,7 +7,7 @@ const EditClubModal = ({ club, onClose, onSaved }) => {
   const [step, setStep] = useState(0);
 
   // form state
-  const [name, setName] = useState(`r/${club?.name || ""}`);
+  const [name, setName] = useState(club?.name || "");
   const [description, setDescription] = useState(club?.description || "");
 
   const [bannerFile, setBannerFile] = useState(null);
@@ -92,7 +92,7 @@ const EditClubModal = ({ club, onClose, onSaved }) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           newName: cleanNewName,
-          title: `r/${cleanNewName}`,
+          title: cleanNewName,
           description,
           bannerUrl: finalBannerUrl,
           iconUrl: finalIconUrl,
@@ -140,11 +140,11 @@ const EditClubModal = ({ club, onClose, onSaved }) => {
           {iconPreview ? (
             <img src={iconPreview} alt="icon" className="cc-preview-icon-img" />
           ) : (
-            <div className="cc-preview-icon-placeholder">r/</div>
+            <div className="cc-preview-icon-placeholder">{name.replace(/^r\//, "").charAt(0).toUpperCase() || "C"}</div>
           )}
         </div>
         <div>
-          <div className="cc-preview-name">{name || "r/club"}</div>
+          <div className="cc-preview-name">{name.replace(/^r\//, "") || "club"}</div>
           <div className="cc-preview-meta">{club?.memberCount || 0} members</div>
         </div>
       </div>

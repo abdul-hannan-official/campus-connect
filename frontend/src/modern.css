@@ -1,0 +1,179 @@
+/* Campus Connect — shared modern polish.
+   Imported once in main.jsx; components keep their own CSS files, this
+   layer only unifies the primitives (buttons, inputs, cards, badges). */
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 18px;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn.primary:hover {
+  background: var(--accent-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.btn.secondary {
+  background: var(--bg-muted);
+  color: var(--text-primary);
+  border-color: var(--border-default);
+}
+
+.btn.secondary:hover {
+  background: var(--border-default);
+}
+
+.btn.danger {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.btn.danger:hover {
+  background: #fbd9d3;
+}
+
+/* Form controls */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="date"],
+input[type="time"],
+textarea,
+select {
+  font-family: var(--font-sans);
+  font-size: 14.5px;
+  color: var(--text-primary);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  padding: 11px 14px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(22, 101, 52, 0.12);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+}
+
+/* Generic white card */
+.cc-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Pill badge */
+.cc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 5px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--accent-soft);
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.cc-badge--danger {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.cc-badge--muted {
+  background: var(--bg-muted);
+  color: var(--text-secondary);
+}
+
+/* Scrollbars */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #cfd4d8;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Stat cards (Home + Admin dashboard). First card is the dark-green
+   gradient hero card from the reference design. */
+.stat-card .stat-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+.stat-card--primary {
+  background: linear-gradient(135deg, var(--green-800), var(--green-950)) !important;
+  border-color: transparent !important;
+  color: #fff;
+}
+
+.stat-card--primary strong,
+.stat-card--primary span {
+  color: #fff !important;
+  opacity: 1;
+}
+
+.stat-card--primary span {
+  opacity: 0.82 !important;
+}
+
+.stat-card--primary .stat-icon {
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+}
+
+/* Section headings with an inline icon (e.g. Announcements). */
+.section-icon {
+  color: var(--accent);
+  margin-right: 6px;
+  vertical-align: -2px;
+}
+
+/* Two-tone wordmark: "Campus" dark + "Connect" green. */
+.brand-green {
+  color: var(--accent);
+}

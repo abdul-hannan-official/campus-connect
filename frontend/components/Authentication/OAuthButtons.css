@@ -40,7 +40,7 @@
   justify-content: center;
   gap: 0.5rem;
   padding: 0.65rem 1rem;
-  border-radius: 8px;
+  border-radius: 999px;
   border: 1px solid #ddd;
   background: #24292f;
   color: #fff;
@@ -54,7 +54,7 @@
 }
 
 .oauth-error {
-  color: #c0392b;
+  color: var(--danger);
   font-size: 0.9rem;
   margin: 0;
 }

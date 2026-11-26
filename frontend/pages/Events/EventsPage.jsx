@@ -1,4 +1,11 @@
 import { useEffect, useState } from "react";
+import {
+  FaPlus,
+  FaCalendarAlt,
+  FaClock,
+  FaMapMarkerAlt,
+  FaUniversity,
+} from "react-icons/fa";
 import axios from "axios";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
@@ -121,7 +128,7 @@ export default function EventsPage({ currentUser }) {
               setShowForm(true);
             }}
           >
-            + Create Event
+            <FaPlus /> Create Event
           </button>
         )}
       </div>
@@ -168,13 +175,22 @@ export default function EventsPage({ currentUser }) {
                 {e.status === "cancelled" && (
                   <span className="event-cancelled">Cancelled</span>
                 )}
-                <span className="event-date">📅 {formatDate(e.date)}</span>
+                <span className="event-date">
+                  <FaCalendarAlt /> {formatDate(e.date)}
+                </span>
               </div>
               <h3 className="event-title">{e.title}</h3>
               <p className="event-desc">{e.description}</p>
               <p className="event-meta">
-                🕐 {e.time} &nbsp;·&nbsp; 📍 {e.venue}
-                {e.club ? ` · 🏛️ ${e.club.name}` : ""}
+                <FaClock /> {e.time} &nbsp;·&nbsp; <FaMapMarkerAlt /> {e.venue}
+                {e.club ? (
+                  <>
+                    {" "}
+                    · <FaUniversity /> {e.club.name}
+                  </>
+                ) : (
+                  ""
+                )}
               </p>
               <p className="event-meta">
                 Organised by {e.organizer?.username || "Admin"} ·{" "}
@@ -238,7 +254,9 @@ export default function EventsPage({ currentUser }) {
               {CATEGORY_LABELS[selected.category] || selected.category} ·{" "}
               {formatDate(selected.date)} · {selected.time}
             </p>
-            <p className="event-meta">📍 {selected.venue}</p>
+            <p className="event-meta">
+              <FaMapMarkerAlt /> {selected.venue}
+            </p>
             <p>{selected.description}</p>
             <p className="event-meta">
               Status: {selected.status} · {selected.registeredCount || 0}{" "}

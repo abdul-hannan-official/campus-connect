@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import InitialAvatar, { stripRedditPrefix } from "../../Avatar/InitialAvatar.jsx";
 import "./ClubHeader.css";
 
 function ClubHeader({ club, isMember, setIsMember }) {
@@ -62,20 +63,21 @@ function ClubHeader({ club, isMember, setIsMember }) {
       </div>
 
       <div className="info">
-        {shownIcon ? (
-          <img src={shownIcon} alt="icon" className="clubIcon" />
-        ) : (
-          <div className="clubIcon iconPlaceholder">r/</div>
-        )}
+        <InitialAvatar
+          name={club.name}
+          iconUrl={shownIcon || null}
+          size={80}
+          className="clubIcon"
+        />
 
         <div className="textInfo">
-          <h1 className="name">r/{club.name}</h1>
+          <h1 className="name">{stripRedditPrefix(club.name)}</h1>
           <p className="description">{club.description || ""}</p>
         </div>
 
         <div className="buttonGroup">
           {isMember &&(<button className="createPostBtn" onClick={handleCreatePost}>
-            + Create Post
+            Create Post
           </button>)}
 
           <button

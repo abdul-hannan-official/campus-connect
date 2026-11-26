@@ -147,7 +147,7 @@ export default function EditProfilePage({ setCurrentUser = () => {} }) {
         { withCredentials: true },
       );
 
-      setPassSuccess("Password updated successfully ✅");
+      setPassSuccess("Password updated successfully");
       setTimeout(() => {
         setShowPassModal(false);
       }, 700);

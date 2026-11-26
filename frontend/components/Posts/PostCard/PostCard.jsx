@@ -8,7 +8,11 @@ import {
   FaRegBookmark,
   FaEyeSlash,
   FaFlag,
+  FaThumbtack,
+  FaLink,
+  FaPaperclip,
 } from "react-icons/fa";
+import InitialAvatar, { stripRedditPrefix } from "../../Avatar/InitialAvatar.jsx";
 import "./PostCard.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -211,27 +215,28 @@ const handleSavePost = async () => {
             to={`/club/${post.club}`}
             className="post-meta-left"
           >
-            <img
-              src={
+            <InitialAvatar
+              name={post.club || post.user}
+              iconUrl={
                 post.clubIcon
                   ? `${import.meta.env.VITE_API_URL}${post.clubIcon}`
-                  : `https://api.dicebear.com/7.x/thumbs/svg?seed=${encodeURIComponent(post.club)}`
+                  : null
               }
-              alt={`r/${post.club}`}
+              size={32}
               className="club-icon"
             />
             {post.club ? (
               <>
-                <span className="club">r/{post.club}</span>
+                <span className="club">{stripRedditPrefix(post.club)}</span>
                 <span className="divider">•</span>
               </>
             ) : (
               <>
-                <span className="club">u/{post.user}</span>
+                <span className="club">{stripRedditPrefix(post.user)}</span>
                 <span className="divider">•</span>
               </>
             )}
-            <span className="user">Posted by u/{post.user}</span>
+            <span className="user">Posted by {stripRedditPrefix(post.user)}</span>
             <span className="divider">•</span>
             <span className="time">{post.time}</span>
           </Link>
@@ -321,7 +326,7 @@ const handleSavePost = async () => {
                             className="menu-item"
                             onClick={(e) => handleMenuAction(e, 'pin')}
                           >
-                            📌 {post.pinned ? "Unpin post" : "Pin post"}
+                            <FaThumbtack className="menu-icon" /> {post.pinned ? "Unpin post" : "Pin post"}
                           </button>
                           <button
                             className="menu-item flag-item"
@@ -361,7 +366,11 @@ const handleSavePost = async () => {
         {/* Title wrapped in Link */}
         <Link to={`/posts/${post.id}`} style={{ textDecoration: 'none' }}>
           <h3 className="post-title">
-            {post.pinned && <span className="pinned-badge">📌 Pinned</span>}{" "}
+            {post.pinned && (
+              <span className="pinned-badge">
+                <FaThumbtack /> Pinned
+              </span>
+            )}{" "}
             {post.title}
           </h3>
         </Link>
@@ -375,7 +384,7 @@ const handleSavePost = async () => {
             className="post-link"
             onClick={(e) => e.stopPropagation()}
           >
-            🔗 {post.linkUrl}
+            <FaLink className="post-link-icon" /> {post.linkUrl}
           </a>
         )}
 
@@ -391,7 +400,7 @@ const handleSavePost = async () => {
                 className="post-attachment"
                 onClick={(e) => e.stopPropagation()}
               >
-                📎 {decodeURIComponent(url.split("/").pop())}
+                <FaPaperclip className="post-link-icon" /> {decodeURIComponent(url.split("/").pop())}
               </a>
             ))}
           </div>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import InitialAvatar, { stripRedditPrefix } from "../../Avatar/InitialAvatar.jsx";
 import { Link } from "react-router-dom";
 import "./Post.css";
 import Comment from "../../Comment/Comment.jsx";
@@ -65,21 +66,22 @@ useEffect(() => {
     <div className="post-card">
       {/* HEADER */}
       <div className="post-header">
-        <img 
-          className="post-club-avatar"
-          src={
+        <InitialAvatar
+          name={post.club || post.author}
+          iconUrl={
             post.clubIcon
               ? `${import.meta.env.VITE_API_URL}${post.clubIcon}`
-              : `https://api.dicebear.com/7.x/thumbs/svg?seed=${encodeURIComponent(post.club)}`
-            }
-            alt={`r/${post.club}`}
+              : null
+          }
+          size={24}
+          className="post-club-avatar"
         />
         <Link className="post-club" to={`/club/${encodeURIComponent(post.club)}`}>
-          r/{post.club}
+          {stripRedditPrefix(post.club)}
         </Link>
         <span className="dot">•</span>
         <Link className="post-author" to={`/user/${post.authorId}`}>
-          Posted by u/{post.author}
+          Posted by {stripRedditPrefix(post.author)}
         </Link>
         <span className="dot">•</span>
         <span className="post-time">{post.timeAgo}</span>

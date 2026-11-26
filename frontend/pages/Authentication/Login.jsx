@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import OAuthButtons from "../../components/Authentication/OAuthButtons.jsx";
+import AuthSidePanel from "../../components/Authentication/AuthSidePanel.jsx";
 
 export default function Login({ onLogin, inModal, switchMode }) {
   const navigate = useNavigate();
@@ -35,11 +36,7 @@ export default function Login({ onLogin, inModal, switchMode }) {
     <div
       className={`auth-page login-page  ${inModal ? "auth-modal-content" : ""}`}
     >
-      {!inModal && (
-        <div className="auth-left">
-          <span className="brand-wordmark">Campus&nbsp;Connect</span>
-        </div>
-      )}
+      {!inModal && <AuthSidePanel />}
 
       <div className="auth-right">
         <form className="auth-form" onSubmit={handleSubmit}>

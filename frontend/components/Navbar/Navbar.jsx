@@ -4,12 +4,15 @@ import {
   FaSearch,
   FaPlus,
   FaBell,
-  FaBellSlash, 
+  FaBellSlash,
   FaUser,
   FaSignOutAlt,
   FaMoon,
   FaSun,
   FaComment,
+  FaCalendarAlt,
+  FaBookmark,
+  FaShieldAlt,
 } from "react-icons/fa";
 import axios from "axios";
 import { useSocket } from "../../context/SocketContext";
@@ -29,6 +32,19 @@ export default function Navbar({
   const socket = useSocket();
   const navigate = useNavigate();
   const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const searchInputRef = useRef(null);
+
+  // Ctrl+K / Cmd+K focuses the top search, like the hint in the search box.
+  useEffect(() => {
+    const onKey = (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        searchInputRef.current?.focus();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
   const [searchText, setSearchText] = useState("");
   const [notisCount, setNotisCount] = useState(0);
   const [avatarBust, setAvatarBust] = useState(Date.now());
@@ -223,26 +239,31 @@ export default function Navbar({
       <div className="navbar">
         <div className="nav-left">
           <div className="logo-section">
-            <Link to="/">
-              <span className="brand-wordmark">Campus&nbsp;Connect</span>
+            <Link to="/" className="brand-link">
+              <img src={logo} alt="Campus Connect" className="nav-logo-mark" />
+              <span className="brand-wordmark">
+                Campus<span className="brand-green">Connect</span>
+              </span>
             </Link>
           </div>
         </div>
 
         <div className="nav-center">
           <div className="search-container">
+            <span className="search-icon search-icon--left">
+              <FaSearch />
+            </span>
             <input
+              ref={searchInputRef}
               placeholder="Search Campus Connect"
-              className="nav-search"
+              className="nav-search nav-search--with-left-icon"
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
               onKeyDown={(e) => {
                 if (e.key === "Enter") handleSearch();
               }}
             />
-            <div className="search-icon">
-              <FaSearch onClick={handleSearch} />
-            </div>
+            <kbd className="search-kbd">Ctrl K</kbd>
           </div>
         </div>
 
@@ -259,14 +280,17 @@ export default function Navbar({
 
           {/* Campus Connect: events, saved posts, admin panel */}
           <Link to="/events" className="nav-text-link" title="Department events">
-            📅 Events
+            <FaCalendarAlt className="nav-text-icon" />
+            <span>Events</span>
           </Link>
           <Link to="/saved" className="nav-text-link" title="Saved posts">
-            🔖 Saved
+            <FaBookmark className="nav-text-icon" />
+            <span>Saved</span>
           </Link>
           {user?.role === "admin" && (
             <Link to="/admin" className="nav-text-link" title="Admin panel">
-              🛡️ Admin
+              <FaShieldAlt className="nav-text-icon" />
+              <span>Admin</span>
             </Link>
           )}
 
@@ -419,8 +443,11 @@ export default function Navbar({
     <div className="navbar">
       <div className="nav-left">
         <div className="logo-section">
-          <Link to="/guest">
-            <span className="brand-wordmark">Campus&nbsp;Connect</span>
+          <Link to="/guest" className="brand-link">
+            <img src={logo} alt="Campus Connect" className="nav-logo-mark" />
+            <span className="brand-wordmark">
+              Campus<span className="brand-green">Connect</span>
+            </span>
           </Link>
         </div>
       </div>
@@ -432,7 +459,7 @@ export default function Navbar({
             className="nav-search"
           />
           <div className="search-icon">
-            <img src={logo} alt="Campus Connect logo" className="nav-logo" />
+            <FaSearch />
           </div>
         </div>
       </div>
