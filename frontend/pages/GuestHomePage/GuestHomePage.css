@@ -285,3 +285,23 @@
   color: var(--text-muted);
   letter-spacing: 0.2px;
 }
+
+
+/* MOBILE: the footer lives inside .page-container as a flex item. Below 960px
+   it takes ~300px of the row and squeezes the feed to ~30px wide. Let the
+   row wrap so the feed and the footer each take a full row. */
+@media (max-width: 960px) {
+  .page-container {
+    flex-wrap: wrap;
+  }
+
+  .main-feed {
+    flex: 1 1 100%;
+    max-width: 640px;
+  }
+
+  .footer-text {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+}
