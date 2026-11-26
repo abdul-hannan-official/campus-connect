@@ -19,6 +19,7 @@ export default class ErrorBoundary extends Component {
   render() {
     if (!this.state.error) return this.props.children;
 
+    const err = this.state.error;
     return (
       <div
         style={{
@@ -38,6 +39,21 @@ export default class ErrorBoundary extends Component {
         <p>
           Campus Connect hit an unexpected error. Reloading usually fixes it.
         </p>
+        <pre
+          style={{
+            maxWidth: "100%",
+            overflow: "auto",
+            textAlign: "left",
+            fontSize: 12,
+            background: "rgba(0,0,0,0.06)",
+            padding: 12,
+            borderRadius: 8,
+            whiteSpace: "pre-wrap",
+          }}
+        >
+          {String(err?.message || err)}
+          {err?.stack ? `\n${String(err.stack).split("\n").slice(0, 5).join("\n")}` : ""}
+        </pre>
         <button
           type="button"
           onClick={() => window.location.reload()}
