@@ -5,6 +5,7 @@ import CreatePostForm from "../CreatePostForm/CreatePostForm";
 import { useSearchParams } from "react-router-dom";
 
 import "./CreatePost.css";
+import logo from "../../../assets/logo.png";
 
 export default function CreatePost() {
   const [activeTab, setActiveTab] = useState("post");
@@ -99,7 +100,7 @@ export default function CreatePost() {
                   src={
                     selectedClub?.iconUrl
                       ? `${import.meta.env.VITE_API_URL}${selectedClub.iconUrl}`
-                      : "/assets/reddit-logo.png"
+                      : logo
                   }
                   alt={selectedClub?.name || "club"}
                 />
@@ -143,7 +144,7 @@ export default function CreatePost() {
                           src={
                             c.iconUrl
                               ? `${import.meta.env.VITE_API_URL}${c.iconUrl}`
-                              : "/assets/default-club.png"
+                              : logo
                           }
                           alt={c.name}
                         />

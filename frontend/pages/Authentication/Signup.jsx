@@ -59,7 +59,7 @@ export default function Signup({ onLogin, inModal, switchMode }) {
       <div className="auth-right">
         <form className="auth-form" onSubmit={handleSubmit}>
           <h1>Create Account</h1>
-          <p>Join millions of people on Reddit</p>
+          <p>Join your CS department community</p>
 
           {error && <div className="auth-alert auth-error">{error}</div>}
           {success && <div className="auth-alert auth-success">{success}</div>}

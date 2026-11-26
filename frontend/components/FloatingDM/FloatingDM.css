@@ -345,3 +345,22 @@
 .floating-dm-search-results::-webkit-scrollbar-track {
   background: transparent;
 }
+
+
+/* MOBILE: the 750px chat window must fit the phone screen. */
+.floating-dm-window {
+  max-width: calc(100vw - 16px);
+}
+
+@media (max-width: 768px) {
+  .floating-dm-container {
+    right: 8px;
+    bottom: 8px;
+    left: 8px;
+  }
+
+  .floating-dm-window {
+    width: 100%;
+    height: min(600px, calc(100vh - 120px));
+  }
+}

@@ -91,7 +91,7 @@ export default function ProfileSidebar({ user, isMyProfile }) {
           <div className="stat-item">
             <div className="stat-value">{stats?.age ?? "0d"}</div>
             <div className="stat-label">
-              <strong>Reddit age</strong>
+              <strong>Member since</strong>
             </div>
           </div>
         </div>
@@ -106,7 +106,7 @@ export default function ProfileSidebar({ user, isMyProfile }) {
           </div>
 
           <div className="achievement-text">
-            Feed Finder, Joined Reddit, Secured Account
+            Club Explorer, Joined Campus Connect, Secured Account
           </div>
 
           <div className="achievement-footer">

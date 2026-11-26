@@ -1,28 +1,28 @@
-/* THEME TOKENS (Reddit-style) */
+/* THEME TOKENS (Campus Connect) */
 
 /* Light */
 :root {
   /* backgrounds */
   --bg-page: #dae0e6;
-  /* Reddit page gray */
+  /* Page gray */
   --bg-surface: #ffffff;
   /* Cards, navbar */
   --bg-elevated: #ffffff;
 
   /* text */
   --text-primary: #1a1a1b;
-  /* Reddit primary text */
+  /* Primary text */
   --text-secondary: #787c7e;
   --text-muted: #a4a7a8;
 
   /* borders */
   --border-default: #edeff1;
-  /* Reddit separators */
+  /* Separators */
 
   /* accents */
-  --accent: #ff4500;
-  /* Reddit Orange */
-  --accent-hover: #ff5714;
+  --accent: #0e7a4d;
+  /* Campus green */
+  --accent-hover: #0b5e3b;
 
   /* states */
   --upvote: #ff4500;
@@ -34,7 +34,7 @@
   /* search */
   --search-bg: #f6f7f8;
   --search-border: #cfd2d6;
-  --search-border-focus: #0079d3;
+  --search-border-focus: #0e7a4d;
 }
 
 /* Dark */
@@ -53,8 +53,8 @@
   --border-default: #343536;
 
   /* accents */
-  --accent: #ff4500;
-  --accent-hover: #ff5714;
+  --accent: #0e7a4d;
+  --accent-hover: #0b5e3b;
 
   /* states */
   --upvote: #ff4500;
@@ -66,7 +66,7 @@
   /* search */
   --search-bg: #272729;
   --search-border: #444547;
-  --search-border-focus: #0079d3;
+  --search-border-focus: #0e7a4d;
 }
 
 /* Global base */

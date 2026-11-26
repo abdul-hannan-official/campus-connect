@@ -600,7 +600,7 @@
   text-align: center;
 }
 
-.empty-snoo {
+.empty-illustration {
   width: 140px;
   height: auto;
   margin-bottom: 28px;
@@ -795,4 +795,16 @@
 .home-announcements > h2 {
   font-size: 1.15rem;
   margin: 0 0 0.6rem;
+}
+
+
+/* MOBILE: keep post meta and action rows inside the card on narrow screens. */
+@media (max-width: 480px) {
+  .post-meta-left {
+    font-size: 11px;
+  }
+
+  .feed-controls {
+    gap: 8px;
+  }
 }

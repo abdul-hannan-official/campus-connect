@@ -249,10 +249,10 @@ export default function GuestHomePage({ setShowAuth }) {
 
       <div className="footer-text">
         <p className="footer-line">
-          Reddit Rules Privacy Policy User Agreement
+          Campus Connect • Community Guidelines • Privacy Policy
         </p>
         <p className="footer-copyright">
-          Reddit, Inc. © 2025. All rights reserved.
+          Campus Connect © 2026. All rights reserved.
         </p>
       </div>
     </div>

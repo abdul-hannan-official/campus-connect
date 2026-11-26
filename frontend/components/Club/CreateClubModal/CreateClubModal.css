@@ -406,3 +406,19 @@
   background: var(--accent);
   color: #fff;
 }
+
+
+/* MOBILE: stack the two-column step layout instead of squeezing it. */
+@media (max-width: 640px) {
+  .cc-overlay {
+    padding: 12px;
+  }
+
+  .cc-step-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .cc-step-body {
+    padding: 12px 16px 8px 16px;
+  }
+}

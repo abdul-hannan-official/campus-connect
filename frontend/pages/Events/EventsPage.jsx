@@ -104,8 +104,8 @@ export default function EventsPage({ currentUser }) {
     id: e._id,
     title: e.title,
     start: e.date,
-    backgroundColor: e.status === "cancelled" ? "#c0392b" : "#0079d3",
-    borderColor: e.status === "cancelled" ? "#c0392b" : "#0079d3",
+    backgroundColor: e.status === "cancelled" ? "#c0392b" : "#0e7a4d",
+    borderColor: e.status === "cancelled" ? "#c0392b" : "#0e7a4d",
     extendedProps: e,
   }));
 

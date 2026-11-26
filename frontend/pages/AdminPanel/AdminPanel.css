@@ -30,8 +30,8 @@
 }
 
 .admin-tab.active {
-  background: #0079d3;
-  border-color: #0079d3;
+  background: #0e7a4d;
+  border-color: #0e7a4d;
   color: #fff;
 }
 
@@ -100,7 +100,7 @@
 }
 
 .admin-panel .btn.primary {
-  background: #0079d3;
+  background: #0e7a4d;
   color: #fff;
 }
 

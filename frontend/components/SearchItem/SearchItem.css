@@ -172,7 +172,7 @@
   white-space: nowrap;
 }
 
-/* Force post meta to stay left like Reddit */
+/* Force post meta to stay left */
 .sp-meta {
   margin-left: 0 !important;
   text-align: left;

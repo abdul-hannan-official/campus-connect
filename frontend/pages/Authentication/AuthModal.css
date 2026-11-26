@@ -54,3 +54,19 @@
     transform: scale(1);
   }
 }
+
+
+/* MOBILE: modal must fit small phones instead of overflowing at fixed 420px. */
+.auth-modal {
+  max-width: calc(100vw - 32px);
+}
+
+@media (max-width: 480px) {
+  .auth-modal {
+    padding: 24px 20px;
+  }
+
+  .auth-overlay {
+    padding: 0 16px;
+  }
+}

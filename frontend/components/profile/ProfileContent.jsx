@@ -139,7 +139,7 @@ export default function ProfileContent({
                 <EmptyState
                   title={"this user is nowhere to be found in any club"}
                   message={
-                    "Join a club of this user's interests to dive into the world of reddit!"
+                    "Join a club of this user's interests to dive into Campus Connect!"
                   }
                 ></EmptyState>
               )}

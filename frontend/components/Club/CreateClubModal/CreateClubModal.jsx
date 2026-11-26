@@ -6,9 +6,9 @@ const CreateClubModal = ({ onClose }) => {
 
   const baseUrl = import.meta.env.VITE_API_URL;
 
-  const [name, setName] = useState("r/AskDaveTaylor");
+  const [name, setName] = useState("");
   const [description, setDescription] = useState(
-    "Reddit club for fans and people interested in both the Web site AskDaveTaylor.com and the YouTube channel AskDaveTaylor. Tech Q&A with a sense of humor. Let's go!",
+    "A club for CS students to discuss coursework, share resources and organise society activities.",
   );
 
   // store files (for real upload)

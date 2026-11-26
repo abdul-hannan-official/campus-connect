@@ -126,7 +126,7 @@ export default function Explore() {
             <TopClubs />
 
             <div className="sr-card ttt">
-              <h3>Explore Reddit</h3>
+              <h3>Explore Campus Connect</h3>
               <p>We have a whole world for you to explore, get ready.</p>
               <p>
                 Remember, always surround yourself with those who share the same

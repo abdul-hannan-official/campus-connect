@@ -326,8 +326,8 @@
   width: 4px;
   background: linear-gradient(
     to bottom,
-    #ff4500,
-    #ff6a00
+    #0e7a4d,
+    #0b5e3b
   );
 }
 
@@ -547,7 +547,7 @@
   }
 }
 
-/* Campus Connect text wordmark (replaces the old Readit.png image). */
+/* Campus Connect text wordmark. */
 .brand-wordmark {
   font-size: 1.25rem;
   font-weight: 800;
@@ -577,5 +577,47 @@
   .nav-text-link {
     padding: 0.4rem 0.35rem;
     font-size: 0.85rem;
+  }
+}
+
+
+/* MOBILE NAVBAR */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  .nav-center {
+    margin: 0 4px;
+    min-width: 0;
+  }
+
+  /* Keep only the logo mark on small screens; the wordmark crowds the search. */
+  .navbar .brand-wordmark {
+    display: none;
+  }
+
+  .login-btn,
+  .signup-btn {
+    padding: 8px 14px;
+    margin-left: 6px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .nav-right {
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-search {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .create-post-btn {
+    padding: 8px;
   }
 }

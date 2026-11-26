@@ -9,6 +9,7 @@ import AnnouncementCard from "../Announcements/AnnouncementCard.jsx";
 import { resolveMediaUrl } from "../../src/utils/mediaUrl.js";
 
 import axios from "axios";
+import defaultAvatar from "../../assets/default-avatar.png";
 
 // Helper function to format time ago
 const formatTimeAgo = (dateString) => {
@@ -538,9 +539,9 @@ const HomePage = () => {
       <div className="feed-empty">
         <div className="feed-empty-inner">
           <img
-            src="https://www.redditstatic.com/avatars/avatar_default_02_46D160.png"
-            alt="Snoo"
-            className="empty-snoo"
+            src={defaultAvatar}
+            alt="Campus Connect"
+            className="empty-illustration"
           />
 
           <h2>Nothing here yet</h2>

@@ -4,13 +4,6 @@ import {
   HiHome,
   HiFire,
   HiUserGroup,
-  HiInformationCircle,
-  HiSpeakerphone,
-  HiCode,
-  HiQuestionMarkCircle,
-  HiNewspaper,
-  HiBriefcase,
-  HiBookOpen,
   HiPlus,
 } from "react-icons/hi";
 import { NavLink } from "react-router-dom";
@@ -68,79 +61,6 @@ export default function LeftSidebar({
           </div>
         )}
 
-        <div className="nav-section">
-          <h4>RESOURCES</h4>
-
-          <a
-            className="nav-item"
-            href="https://github.com/adamt-eng/readit-reddit-clone"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <HiInformationCircle className="nav-icon" />
-            <span>Readit — base project</span>
-          </a>
-
-          <a
-            className="nav-item"
-            href="https://www.reddit.com/advertising/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <HiSpeakerphone className="nav-icon" />
-            <span>Advertise</span>
-          </a>
-
-          <a
-            className="nav-item"
-            href="https://www.reddit.com/dev/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <HiCode className="nav-icon" />
-            <span>Developer Platform</span>
-          </a>
-
-          <a
-            className="nav-item"
-            href="https://www.reddithelp.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <HiQuestionMarkCircle className="nav-icon" />
-            <span>Help</span>
-          </a>
-
-          <a
-            className="nav-item"
-            href="https://redditinc.com/blog/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <HiNewspaper className="nav-icon" />
-            <span>Blog</span>
-          </a>
-
-          <a
-            className="nav-item"
-            href="https://redditinc.com/careers/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <HiBriefcase className="nav-icon" />
-            <span>Careers</span>
-          </a>
-
-          <a
-            className="nav-item"
-            href="https://redditinc.com/press/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <HiBookOpen className="nav-icon" />
-            <span>Press</span>
-          </a>
-        </div>
       </nav>
       {showCreateClub &&
         createPortal(
